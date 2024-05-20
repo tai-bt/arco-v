@@ -1,0 +1,61 @@
+// 自定义指令的旋转动画
+@keyframes loading {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+.loading-spinner {
+    animation: loading 1.5s linear infinite;
+    width: 18px;
+    margin-right: 10px;
+}
+
+// 小手
+.hand {
+    cursor: pointer;
+}
+// 禁止用户选中
+.noneSelect {
+    user-select: none;
+}
+.img {
+    object-fit: contain;
+}
+.flex {
+    display: flex;
+}
+// flex布局
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.flex-left {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+.flex-right {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+.flex-justify-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.flex-align-center {
+    display: flex;
+    align-items: center;
+}
+.flex-direction-column {
+    display: flex;
+    flex-direction: column;
+}
+.flex-wrap {
+    flex-wrap: wrap;
+}
