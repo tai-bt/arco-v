@@ -1,8 +1,11 @@
 <template>
   <div>
     <p @click="getFn">获取</p>
-    <p class="loading" v-axios-loading="'/brandArchives/getInternalBrandList'">
+    <p @click="getFn1">获取1</p>
+    <p class="loading" v-axios-loading="['/brandArchives/getInternalBrandList', '/api/queryAllCgList']">
       skdhjgfksjhfkjasdhkj
+      
+      <p style="width: 100px; height: 100px; background-color: aqua;" v-axios-loading="'/api/queryAllCgList'">2222222222</p>
     </p>
     <p>skdjhfksj</p>
 
@@ -26,7 +29,13 @@ const getFn = () => {
     console.log(res)
   })
 }
-getFn()
+// getFn()
+
+const getFn1 = () => {
+  axiosInstance.post('/api/queryAllCgList').then((res) => {
+    console.log(res)
+  })
+}
 
 const columns = [
   {

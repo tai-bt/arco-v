@@ -30,7 +30,9 @@ axiosInstance.interceptors.request.use(
 // 响应拦截器
 axiosInstance.interceptors.response.use(
 	response => {
-		axiosCounter.value.delKey(response.config.url)
+		setTimeout(() => {
+			axiosCounter.value.delKey(response.config.url)
+		}, 1000)
 		// 对响应数据做些什么
 		return response.data;
 	},

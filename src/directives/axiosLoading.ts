@@ -11,22 +11,22 @@ const axiosCounter:any = computed(() => {
 
 interface LoadingElement extends HTMLElement {
   __originalDisplay?: string;
+  loadingElement: any
 }
 
 
 const setLoading = (el: LoadingElement, isLoading: boolean) => {
-  
-  
   if (window.getComputedStyle(el).getPropertyValue('position') == 'static') {
     el.style.position = 'relative';
   }
+  
   const showLoading = () => {
     // 创建loading元素
-    const loadingElementDirectives:any = el.querySelector('.loadingElementDirectives');
-    if (loadingElementDirectives) {
-      loadingElementDirectives.style.display = 'flex';
+    let loadingElement = el.loadingElement;
+    if (loadingElement) {
+      loadingElement.style.display = 'flex';
     } else {
-      const loadingElement = document.createElement('div');
+      loadingElement = document.createElement('span');
       loadingElement.classList.add('loadingElementDirectives')
       loadingElement.style.position = 'absolute';
       loadingElement.style.top = '0';
@@ -40,15 +40,18 @@ const setLoading = (el: LoadingElement, isLoading: boolean) => {
       loadingElement.style.zIndex = '9999';
       loadingElement.innerHTML = `<img src="${loadingSvg}" alt="loading" class='loading-spinner' />`;
       el.appendChild(loadingElement);
+      el.loadingElement = loadingElement;
     }
+
   };
 
   const hideLoading = () => {
-    const loadingElementDirectives:any = el.querySelector('.loadingElementDirectives');
-    if (loadingElementDirectives) {
-      loadingElementDirectives.style.display = 'none';
+    const loadingElement = el.loadingElement;
+    if (loadingElement) {
+      loadingElement.parentNode?.removeChild(loadingElement);
+      delete el.loadingElement;
     }
-    el.style.position = 'static'
+    el.style.position = 'static';
   };
   
   if (isLoading) {
@@ -72,7 +75,14 @@ export const axiosLoadingDirective = {
       () => axiosCounter.value,
       (newVal) => {
         // 初始化状态
-        setLoading(el, newVal[binding.value]);
+        if (typeof binding.value == 'string') {
+          setLoading(el, newVal[binding.value]);
+        } else if (Array.isArray(binding.value)) {
+          let is = binding.value.some((item) => {
+            return newVal[item]
+          })
+          setLoading(el, is);
+        }
       }
     )
   }
