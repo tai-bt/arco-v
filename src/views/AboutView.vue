@@ -9,9 +9,9 @@
     </p>
     <p>skdjhfksj</p>
 
-    <a-input v-axios-loading="'/brandArchives/getInternalBrandList'"></a-input>
+    <a-input></a-input>
 
-    <a-table :columns="columns" class="t-mt12" v-axios-loading="'/brandArchives/getInternalBrandList'">
+    <a-table :columns="columns" class="t-mt12">
  
     </a-table>
   </div>
@@ -27,6 +27,8 @@ const getFn = () => {
     key: ''
   }).then((res) => {
     console.log(res)
+  }).catch((error) => {
+    console.log(error, 'error')
   })
 }
 // getFn()
@@ -34,6 +36,8 @@ const getFn = () => {
 const getFn1 = () => {
   axiosInstance.post('/api/queryAllCgList').then((res) => {
     console.log(res)
+  }).catch((error) => {
+    console.log(error, 'error')
   })
 }
 
