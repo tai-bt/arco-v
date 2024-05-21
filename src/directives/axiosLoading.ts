@@ -1,4 +1,3 @@
-// src/directives/axiosLoading.ts
 import type { DirectiveBinding } from 'vue'
 import { computed, watch } from 'vue'
 import { axiosCounterStore } from '@/stores/modules/axios'

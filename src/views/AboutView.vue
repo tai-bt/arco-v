@@ -9,7 +9,8 @@
     </p>
     <p>skdjhfksj</p>
 
-    <a-input></a-input>
+    <a-button @click="disabled = !disabled">点击</a-button>
+    <a-input v-model="inputModel" allow-clear :disabled="disabled"></a-input>
 
     <a-table :columns="columns" class="t-mt12">
  
@@ -18,7 +19,11 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
 import axiosInstance from '@/axios'
+
+const inputModel = ref<any>('')
+const disabled = ref<boolean>(false)
 
 const getFn = () => {
   axiosInstance.post('/brandArchives/getInternalBrandList', {

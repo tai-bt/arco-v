@@ -1,22 +1,28 @@
 {
   "compilerOptions": {
-    "target": "es6",                         // 目标 ECMAScript 版本
-    "module": "commonjs",                    // 模块系统
-    "strict": true,                          // 启用所有严格类型检查选项
-    "esModuleInterop": true,                 // 兼容 ES 模块和 CommonJS 模块
-    "forceConsistentCasingInFileNames": true,// 强制文件名大小写一致
-    "outDir": "./dist",                      // 输出目录
-    "rootDir": "./src",                      // 根目录
-    "baseUrl": ".",                          // 基础路径
-    "paths": {                               // 路径映射
-      "@components/*": ["src/components/*"]
-    }
+    "target": "esnext",
+    "useDefineForClassFields": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "types": ["vite/client", "node"],
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "baseUrl": "./",
+    "allowJs": true,
+    "checkJs": false,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "lib": ["esnext", "dom"],
+    "skipLibCheck": true /* Skip type checking all .d.ts files. */,
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "ignoreDeprecations": "5.0",
+    "suppressImplicitAnyIndexErrors": true,
+    "composite": true
   },
-  "include": [
-    "src/**/*"                               // 包含 src 目录下的所有文件
-  ],
-  "exclude": [
-    "node_modules",                          // 排除 node_modules 目录
-    "dist"                                   // 排除 dist 目录
-  ]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "vite.config.ts", "build/*.ts"],
+  "exclude": ["node_modules", "dist", "**/*.js"]
 }
