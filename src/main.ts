@@ -7,6 +7,7 @@ import router from './router'
 // 公共css
 import './styles/index.scss'
 import './styles/t-lib.scss'
+import './styles/t-reset.scss'
 
 // svg icons
 import "virtual:svg-icons-register";

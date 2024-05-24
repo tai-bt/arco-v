@@ -37,8 +37,13 @@
     <a-layout>
       <a-layout-header class="layoutHeader">Header</a-layout-header>
       <a-layout-content>
-        <!--  style="height: calc(100vh - 120px); overflow: auto" -->
-        <a-scrollbar style="height: calc(100vh - 120px); overflow: auto" class="contentRouterView t-plrtb">
+        <a-scrollbar
+          style="
+            height: calc(100vh - 120px);
+            overflow: auto;
+            padding: 10px;
+            "
+          >
           <RouterView></RouterView>
         </a-scrollbar>
       </a-layout-content>
@@ -80,10 +85,5 @@ const collapseChange = (collapsed: boolean) => {
 
 .t-plrtb {
   padding: 10px;
-}
-
-.contentRouterView {
-  height: calc(100vh - 120px) !important;
-  overflow: auto !important
 }
 </style>

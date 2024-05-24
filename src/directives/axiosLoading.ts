@@ -74,7 +74,9 @@ export const axiosLoadingDirective = {
       () => axiosCounter.value,
       (newVal) => {
         // 初始化状态
-        if (typeof binding.value == 'string') {
+        if (binding.value == 'allLoading') {
+          setLoading(el, Object.keys(newVal).length > 0)
+        } else if (typeof binding.value == 'string') {
           setLoading(el, newVal[binding.value]);
         } else if (Array.isArray(binding.value)) {
           let is = binding.value.some((item) => {
