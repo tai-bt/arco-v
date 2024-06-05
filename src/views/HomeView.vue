@@ -1,41 +1,13 @@
 <template>
   <a-layout class="layout">
-    <a-layout-sider :style="{width: collapseIs ? '48px' : '200px'}">
-      <a-menu
-        :style="{ width: '200px', height: '100%' }"
-        :default-open-keys="['2']"
-        :default-selected-keys="['2_0']"
-        show-collapse-button
-        @collapse="collapseChange"
-      >
-        <a-menu-item key="0_0_0" data-obj="1" @click="jump()">Menu 1</a-menu-item>
-        <a-sub-menu key="0">
-          <template #icon><icon-apps></icon-apps></template>
-          <template #title>Navigation 1</template>
-          <a-menu-item key="0_0">Menu 1</a-menu-item>
-          <a-menu-item key="0_1">Menu 2</a-menu-item>
-          <a-menu-item key="0_2" disabled>Menu 3</a-menu-item>
-        </a-sub-menu>
-        <a-sub-menu key="1">
-          <template #icon><icon-bug></icon-bug></template>
-          <template #title>Navigation 2</template>
-          <a-menu-item key="1_0">Menu 1</a-menu-item>
-          <a-menu-item key="1_1">Menu 2</a-menu-item>
-          <a-menu-item key="1_2">Menu 3</a-menu-item>
-        </a-sub-menu>
-        <a-sub-menu key="2">
-          <template #icon><icon-bulb></icon-bulb></template>
-          <template #title>Navigation 3</template>
-          <a-menu-item key="2_0" @click="jump()">Menu 1</a-menu-item>
-          <a-menu-item key="2_1">Menu 2</a-menu-item>
-          <a-menu-item key="2_2">Menu 3</a-menu-item>
-          <a-menu-item key="2_3">Menu 4</a-menu-item>
-        </a-sub-menu>
-      </a-menu>
+    <a-layout-sider style="width: auto">
+      <menuView></menuView>
     </a-layout-sider>
 
     <a-layout>
-      <a-layout-header class="layoutHeader">Header</a-layout-header>
+      <a-layout-header class="layoutHeader">
+        <languageView></languageView>
+      </a-layout-header>
       <a-layout-content>
         <a-scrollbar
           style="
@@ -53,19 +25,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { IconMenuFold, IconMenuUnfold, IconApps, IconBug, IconBulb } from '@arco-design/web-vue/es/icon';
 import { RouterView } from 'vue-router';
+import languageView from '@/components/language/index.vue'
+import menuView from '@/components/menu/index.vue'
 
-const jump = () => {
-  alert('12312')
-}
-
-const collapseIs = ref<boolean>(false)
-const collapseChange = (collapsed: boolean) => {
-  console.log(collapsed);
-  collapseIs.value = collapsed
-}
 
 </script>
 

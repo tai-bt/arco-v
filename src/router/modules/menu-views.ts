@@ -2,17 +2,59 @@
 import { RouteRecordRaw } from "vue-router";
 
 export const menuViews: RouteRecordRaw[] = [
-    {
-        path: '/test/test1',
-        name: 'test1',
+  {
+    path: '/test/test1',
+    name: 'test1',
+    meta: {
+      title: '测试1', // 标题
+      isLink: '', // 是否是外链
+      isHide: false, // 是否在菜单中隐藏
+      isKeepAlive: true, // 是否缓存
+      isIframe: false, // 是否是内嵌页面
+      icon: 'iconfont icon-shouye' // 图标
+    },
+    // component: () => import('@/views/AboutView.vue')
+    children: [
+      {
+        path: '/test/test4',
+        name: 'test4',
         meta: {
-          title: '测试1', // 标题
+          title: '测试4', // 标题
           isLink: '', // 是否是外链
           isHide: false, // 是否在菜单中隐藏
           isKeepAlive: true, // 是否缓存
           isIframe: false, // 是否是内嵌页面
           icon: 'iconfont icon-shouye' // 图标
         },
-        component: () => import('@/views/AboutView.vue')
-    }
+        component: () => import('@/views/AboutView.vue'),
+      }
+    ]
+  },
+  {
+    path: '/test/test2',
+    name: 'test2',
+    meta: {
+      title: '测试2', // 标题
+      isLink: '', // 是否是外链
+      isHide: false, // 是否在菜单中隐藏
+      isKeepAlive: true, // 是否缓存
+      isIframe: false, // 是否是内嵌页面
+      icon: 'iconfont icon-shouye' // 图标
+    },
+    children: [
+      {
+        path: '/test/test3',
+        name: 'test3',
+        meta: {
+          title: '测试3', // 标题
+          isLink: '', // 是否是外链
+          isHide: false, // 是否在菜单中隐藏
+          isKeepAlive: true, // 是否缓存
+          isIframe: false, // 是否是内嵌页面
+          icon: 'iconfont icon-shouye' // 图标
+        },
+        component: () => import('@/views/AboutView.vue'),
+      }
+    ]
+  }
 ]

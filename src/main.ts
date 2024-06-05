@@ -15,6 +15,9 @@ import "virtual:svg-icons-register";
 import ArcoVue from '@arco-design/web-vue';
 import '@arco-design/web-vue/dist/arco.css';
 
+// 多语言
+import i18n from './i18n';
+
 const app = createApp(App)
 app.use(pinia)
 
@@ -22,6 +25,8 @@ app.use(pinia)
 import { axiosLoadingDirective } from './directives/axiosLoading'
 // 注册自定义指令
 app.directive('axios-loading', axiosLoadingDirective)
+
+app.use(i18n)
 
 app.use(router)
 app.use(ArcoVue, {

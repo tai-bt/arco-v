@@ -1,9 +1,9 @@
 import { fileURLToPath, URL } from 'node:url'
-
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
+import vueSetupExtend from "unplugin-vue-setup-extend-plus/vite";
 
 // import.meta.url 为当前路径
 // https://vitejs.dev/config/
@@ -12,6 +12,8 @@ export default defineConfig(({ mode }) => {
     plugins: [
       vue(),
       vueJsx(),
+      // name 可以写在 script 标签上
+      vueSetupExtend({}),
       createSvgIconsPlugin({
         // 指定需要缓存的图标文件夹
         iconDirs: [
