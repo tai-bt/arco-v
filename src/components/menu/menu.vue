@@ -7,13 +7,14 @@
         </template>
     </a-sub-menu>
 
-    <a-menu-item v-else :key="menu!.name">
+    <a-menu-item v-else :key="menu!.name" @click="jump(menu)">
         {{ menu.meta.title }}
     </a-menu-item>
 </template>
 
 <script setup lang="ts" name="menuView" >
 import { IconApps, IconBug, IconBulb } from '@arco-design/web-vue/es/icon';
+import { useRouter } from 'vue-router';
 
 const props = defineProps({
     menu: {
@@ -23,6 +24,11 @@ const props = defineProps({
         }
     }
 })
+
+const router = useRouter();
+const jump = (item:any) => {
+    router.push(item.path);
+}
 </script>
 
 <style scoped>

@@ -3,6 +3,19 @@ import { RouteRecordRaw } from "vue-router";
 
 export const menuViews: RouteRecordRaw[] = [
   {
+    path: '/test/test3',
+    name: 'test3',
+    meta: {
+      title: '测试3', // 标题
+      isLink: '', // 是否是外链
+      isHide: false, // 是否在菜单中隐藏
+      isKeepAlive: true, // 是否缓存
+      isIframe: false, // 是否是内嵌页面
+      icon: 'iconfont icon-shouye' // 图标
+    },
+    component: () => import('@/views/AboutView.vue')
+  },
+  {
     path: '/test/test1',
     name: 'test1',
     meta: {
@@ -34,7 +47,7 @@ export const menuViews: RouteRecordRaw[] = [
     path: '/test/test2',
     name: 'test2',
     meta: {
-      title: '测试2', // 标题
+      title: 'D3主菜单', // 标题
       isLink: '', // 是否是外链
       isHide: false, // 是否在菜单中隐藏
       isKeepAlive: true, // 是否缓存
@@ -43,17 +56,17 @@ export const menuViews: RouteRecordRaw[] = [
     },
     children: [
       {
-        path: '/test/test3',
-        name: 'test3',
+        path: '/test/D3',
+        name: 'D3',
         meta: {
-          title: '测试3', // 标题
+          title: 'D3', // 标题
           isLink: '', // 是否是外链
           isHide: false, // 是否在菜单中隐藏
           isKeepAlive: true, // 是否缓存
           isIframe: false, // 是否是内嵌页面
           icon: 'iconfont icon-shouye' // 图标
         },
-        component: () => import('@/views/AboutView.vue'),
+        component: () => import('@/views/d3.vue'),
       }
     ]
   }
