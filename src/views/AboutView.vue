@@ -20,8 +20,8 @@
     <a-button @click="increment">加</a-button>
     <a-button @click="decrement">减</a-button>
 
-    <p>{{ $t('self.hello') }}</p>
-    <p>{{ $t('self.welcome') }}</p>
+    <p v-axios-loading>{{ $t('self.hello') }}</p>
+    <p v-axios-loading>{{ $t('self.welcome') }}</p>
   </div>
 </template>
 

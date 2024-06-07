@@ -6,6 +6,10 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
+      path: '/',
+      redirect: '/test/D3'
+    },
+    {
       path: '/layout',
       name: 'layout',
       component: () => import('../views/HomeView.vue'),

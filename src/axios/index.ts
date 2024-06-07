@@ -8,7 +8,7 @@ const axiosCounter:any = computed(() => {
 })
 
 const axiosInstance = axios.create({
-	baseURL: import.meta.env.VITE_AXIOX_BASEURL, // 替换为你的 API 基地址
+	baseURL: import.meta.env.VITE_AXIOX_BASEURL, // API 请求的默认前缀
 	timeout: 1000 * 60 *5, // 设置请求超时时间
 	withCredentials: true, // 跨域时候允许携带凭证
 });
@@ -16,7 +16,7 @@ const axiosInstance = axios.create({
 // 请求拦截器
 axiosInstance.interceptors.request.use(
 	config => {
-		// 记录当前Url
+		// 记录当前Url，用来判断是否显示loading
 		axiosCounter.value.addKey(config.url)
 		// 设置hearder
 		config.headers.token = window.localStorage.getItem('token') || "5063007c-8401-49ab-8240-a29407478e1d";

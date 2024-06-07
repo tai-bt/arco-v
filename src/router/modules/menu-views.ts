@@ -69,5 +69,32 @@ export const menuViews: RouteRecordRaw[] = [
         component: () => import('@/views/d3.vue'),
       }
     ]
+  },
+  {
+    path: 'lazy',
+    name: 'lazy',
+    meta: {
+      title: '懒加载', // 标题
+      isLink: '', // 是否是外链
+      isHide: false, // 是否在菜单中隐藏
+      isKeepAlive: true, // 是否缓存
+      isIframe: false, // 是否是内嵌页面
+      icon: 'iconfont icon-shouye' // 图标
+    },
+    children: [
+      {
+        path: '/layz/ing',
+        name: 'ing',
+        meta: {
+          title: '懒加载', // 标题
+          isLink: '', // 是否是外链
+          isHide: false, // 是否在菜单中隐藏
+          isKeepAlive: true, // 是否缓存
+          isIframe: false, // 是否是内嵌页面
+          icon: 'iconfont icon-shouye' // 图标
+        },
+        component: () => import('@/views/lazy.vue'),
+      }
+    ]
   }
 ]

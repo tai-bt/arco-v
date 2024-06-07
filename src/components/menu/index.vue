@@ -1,13 +1,14 @@
 <template>
-    <a-menu
-        :style="{ width: '200px', height: '100%' }"
-        show-collapse-button
-        :default-open-keys="defaultOpenKeys"
-        :default-selected-keys="defaultSelectedKeys"
-        @collapse="collapseChange"
-      >
-        <menuView v-for="(item, index) in menuViews" :menu="item" :key="index"></menuView>
-    </a-menu>
+  <a-menu
+    :style="{ width: '200px', height: '100%' }"
+    show-collapse-button
+    :default-open-keys="defaultOpenKeys"
+    :default-selected-keys="defaultSelectedKeys"
+    @collapse="collapseChange"
+    >
+    <!-- mode="horizontal" -->
+    <menuView v-for="(item, index) in menuViews" :menu="item" :key="index"></menuView>
+  </a-menu>
 </template>
 
 <script setup lang="ts">

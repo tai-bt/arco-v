@@ -9,15 +9,14 @@
         <languageView></languageView>
       </a-layout-header>
       <a-layout-content>
-        <a-scrollbar
-          style="
+          <!-- style="
             height: calc(100vh - 120px);
             overflow: auto;
             padding: 10px;
-            "
-          >
-          <RouterView></RouterView>
-        </a-scrollbar>
+          " -->
+        <div class="t-scroll">
+          <router-view></router-view>
+        </div>
       </a-layout-content>
       <a-layout-footer class="layoutFooter">Footer</a-layout-footer>
     </a-layout>
@@ -25,10 +24,8 @@
 </template>
 
 <script setup lang="ts">
-import { RouterView } from 'vue-router';
 import languageView from '@/components/language/index.vue'
 import menuView from '@/components/menu/index.vue'
-
 
 </script>
 
@@ -47,6 +44,11 @@ import menuView from '@/components/menu/index.vue'
 }
 
 .t-plrtb {
+  padding: 10px;
+}
+
+.t-scroll {
+  height: calc(100vh - 120px);
   padding: 10px;
 }
 </style>
