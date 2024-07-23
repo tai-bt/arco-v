@@ -1,7 +1,7 @@
 <template>
     <div class="t-lazy" ref="lazyRef">
         <template v-for="(item, index) in showLazyList" :key="index">
-            <slot name="lazy" :scope="item"></slot>
+            <slot name="lazy" :scope="item" :index="index"></slot>
         </template>
     </div>
 </template>

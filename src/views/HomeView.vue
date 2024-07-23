@@ -50,5 +50,6 @@ import menuView from '@/components/menu/index.vue'
 .t-scroll {
   height: calc(100vh - 120px);
   padding: 10px;
+  overflow: auto;
 }
 </style>
