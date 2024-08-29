@@ -140,7 +140,7 @@ export const menuViews: RouteRecordRaw[] = [
         path: '/editor/wangeditor',
         name: 'wangeditor',
         meta: {
-          title: '压缩', // 标题
+          title: 'wangeditor编辑器', // 标题
           isLink: '', // 是否是外链
           isHide: false, // 是否在菜单中隐藏
           isKeepAlive: true, // 是否缓存
@@ -148,6 +148,60 @@ export const menuViews: RouteRecordRaw[] = [
           icon: 'iconfont icon-shouye' // 图标
         },
         component: () => import('@/views/editor/wangEditor.vue'),
+      }
+    ]
+  },
+  {
+    path: 'three',
+    name: 'three',
+    meta: {
+      title: 'threeJS', // 标题
+      isLink: '', // 是否是外链
+      isHide: false, // 是否在菜单中隐藏
+      isKeepAlive: true, // 是否缓存
+      isIframe: false, // 是否是内嵌页面
+      icon: 'iconfont icon-shouye' // 图标
+    },
+    children: [
+      {
+        path: '/three/earth',
+        name: 'earth',
+        meta: {
+          title: '地球', // 标题
+          isLink: '', // 是否是外链
+          isHide: false, // 是否在菜单中隐藏
+          isKeepAlive: true, // 是否缓存
+          isIframe: false, // 是否是内嵌页面
+          icon: 'iconfont icon-shouye' // 图标
+        },
+        component: () => import('@/views/three/earth.vue'),
+      }
+    ]
+  },
+  {
+    path: 'antvX6',
+    name: 'antvX6',
+    meta: {
+      title: 'antvX6', // 标题
+      isLink: '', // 是否是外链
+      isHide: false, // 是否在菜单中隐藏
+      isKeepAlive: true, // 是否缓存
+      isIframe: false, // 是否是内嵌页面
+      icon: 'iconfont icon-shouye' // 图标
+    },
+    children: [
+      {
+        path: '/antvX6/index',
+        name: 'X6',
+        meta: {
+          title: '流程图', // 标题
+          isLink: '', // 是否是外链
+          isHide: false, // 是否在菜单中隐藏
+          isKeepAlive: true, // 是否缓存
+          isIframe: false, // 是否是内嵌页面
+          icon: 'iconfont icon-shouye' // 图标
+        },
+        component: () => import('@/views/antvX6/index.vue'),
       }
     ]
   }
